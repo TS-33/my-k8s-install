@@ -67,7 +67,7 @@ sed -i '/^pool/d' /etc/chrony/chrony.conf
 
 grep "k8s_installer modifid" /etc/chrony/chrony.conf &> /dev/null
 if [[ $? != 0 ]];then
-cat > /etc/chrony/chrony.conf <<EOF
+cat >> /etc/chrony/chrony.conf <<EOF
 
 # k8s_installer modifid
 server ntp.cloud.aliyuncs.com minpoll 4 maxpoll 10 iburst
@@ -433,7 +433,7 @@ cat >> /etc/hosts << EOF1
 
 # k8s_installer modifid
 \$MASTER_IP \$MASTER_NAME
-\${for i in "\${!WORKER_NAMES[@]}";do echo "\${WORKER_IPS[\$i]} \${WORKER_NAMES[\$i]}";done}
+\$(for i in "\${!WORKER_NAMES[@]}";do echo "\${WORKER_IPS[\$i]} \${WORKER_NAMES[\$i]}";done)
 EOF1
 fi
 }
@@ -653,6 +653,8 @@ k8s_install
 join_k8s
 
 EOF
+
+printf "\n\n\n已生成worker_join.sh 请复制到worker节点并执行\n\n\n"
 }
 
 

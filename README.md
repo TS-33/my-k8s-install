@@ -6,6 +6,8 @@ bash k8s_init.sh
 
 you should edit the head of this script to customize your enviroment.
 
+请修改文件开头的“变量设置”部分以自定义你的环境
+
 eg:
 
 ```shell
