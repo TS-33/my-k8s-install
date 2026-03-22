@@ -20,7 +20,12 @@ if [[ `id -u` != 0 ]];then
     exit 1
 fi
 
-ping pkgs.k8s.io -c 2 > /dev/null
+ping pkgs.k8s.io -c 2 -W 2 > /dev/null
+if [[ $? != 0 ]];then
+    echo 网络故障
+    exit 1
+fi
+ping github.com -c 2 -W 2> /dev/null
 if [[ $? != 0 ]];then
     echo 网络故障
     exit 1
