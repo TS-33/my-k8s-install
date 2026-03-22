@@ -6,9 +6,9 @@ bash k8s_init.sh
 
 
 
-Wait for the script to finish executing .This will generate a worker_join.sh script, copy it to your worker node and run it.
+Wait for the script to finish executing .This will generate a worker_init.sh script, copy it to your worker node and run it.
 
-等待脚本执行完成,将生成的worker_join.sh复制到worker节点并执行。
+等待脚本执行完成,将生成的worker_init.sh复制到worker节点并执行。
 
 </br>
 
