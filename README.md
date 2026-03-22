@@ -4,6 +4,12 @@ usage:
 bash k8s_init.sh
 ```
 
+等待脚本执行完成,将生成的worker_join.sh复制到worker节点并执行。
+
+Wait for the script to finish executing .This will generate a worker_join.sh script, copy it to your worker node and run it.
+
+
+
 you should edit the head of this script to customize your enviroment.
 
 请修改文件开头的“变量设置”部分以自定义你的环境
