@@ -295,6 +295,14 @@ systemctl daemon-reload && systemctl enable --now buildkit
 echo " BuildKit 安装成功"
 fi
 
+#配置命令补全
+cat > /etc/profile.d/nerdctl.sh << \EOF
+export CONTAINERD_ADDRESS=/run/containerd/containerd.sock
+export CONTAINERD_NAMESPACE=k8s.io
+alias docker=nerdctl
+. <(nerdctl completion bash)
+EOF
+
 }
 
 function load_image()
@@ -323,15 +331,9 @@ if [[ $? != 0 ]];then
 fi
 apt-mark hold kubelet kubeadm kubectl
 
-#配置命令补全
-cat > /etc/profile.d/nerdctl.sh << \EOF
-export CONTAINERD_ADDRESS=/run/containerd/containerd.sock
-export CONTAINERD_NAMESPACE=k8s.io
-alias docker=nerdctl
+cat > /etc/profile.d/kubernetes.sh << EOF
 . <(kubectl completion bash)
-. <(nerdctl completion bash)
 EOF
-. /etc/profile.d/nerdctl.sh
 
 # 设置Cgroup模式
 mkdir /etc/sysconfig -p
