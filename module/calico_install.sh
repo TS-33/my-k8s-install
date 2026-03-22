@@ -1,3 +1,4 @@
+set -e
 CIDR=`grep -Po '(?<=--cluster-cidr=)[\d./]+' /etc/kubernetes/manifests/kube-controller-manager.yaml`
 
 if [[ -z "$CIDR" ]];then
