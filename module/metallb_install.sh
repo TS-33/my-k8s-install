@@ -42,6 +42,7 @@ break
 fi
 
 echo waiting metallb operator Ready...
+cnt=$(( $cnt + 1 ))
 sleep 30
 done
 
