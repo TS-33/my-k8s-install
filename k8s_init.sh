@@ -62,7 +62,7 @@ fi
 function chrony_install()
 {
 timedatectl set-timezone Asia/Shanghai
-apt install chrony -y
+apt install chrony bash-completion -y
 if [[ $? != 0 ]];then
     echo 网络连接错误
     exit 1
@@ -451,7 +451,7 @@ fi
 function chrony_install()
 {
 timedatectl set-timezone Asia/Shanghai
-apt install chrony -y
+apt install chrony bash-completion -y
 if [[ \$? != 0 ]];then
     echo 网络连接错误
     exit 1
