@@ -1,6 +1,8 @@
 usage:
 
 ```shell
+git clone https://github.com/TS-33/my-k8s-install.git
+cd my-k8s-install
 bash k8s_init.sh
 ```
 
