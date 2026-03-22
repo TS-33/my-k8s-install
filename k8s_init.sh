@@ -331,8 +331,10 @@ if [[ $? != 0 ]];then
 fi
 apt-mark hold kubelet kubeadm kubectl
 
+# 命令补全
 cat > /etc/profile.d/kubernetes.sh << EOF
 . <(kubectl completion bash)
+alias k="kubectl"
 EOF
 
 # 设置Cgroup模式
@@ -661,7 +663,8 @@ join_k8s
 
 EOF
 
-printf "\n\n\n已生成worker_join.sh 请复制到worker节点并执行\n\n\n"
+printf "\n\n\n请执行  source /etc/profile  以加载命令补全"
+printf "\n\n已生成worker_join.sh 请复制到worker节点并执行\n\n"
 }
 
 
